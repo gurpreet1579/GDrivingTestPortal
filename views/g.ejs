@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../views/partials/head.ejs' , {title: 'G Test'}); %>
+</head>
+
+<body>
+    <%- include('../views/partials/navbar.ejs'); %>
+        <%- include('../views/partials/carousel.ejs'); %>
+            <div class="container-cntr ">
+                <h1>Book your G Driving test now</h1>
+                <div class="g-form-container">
+                    <label for="exampleFormControlInput1" class="form-label">Enter License number</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1">
+                    <button type="button" class="btn txt-color">Enter</button>
+                </div>
+            </div>
+            <%- include('../views/partials/footer.ejs'); %>
+                <%- include('../views/partials/scripts.ejs'); %>
+</body>
+
+</html>

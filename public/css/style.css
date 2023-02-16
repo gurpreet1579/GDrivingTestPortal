@@ -1,0 +1,117 @@
+body {
+    background-color: #F0F5F9;
+    font-family: 'Krub';
+}
+
+@font-face {
+    font-family: "Krub";
+    src: url("/fonts/Krub-Regular.ttf") format("truetype");
+}
+
+.nav-bg {
+    background-color: #FC6011;
+}
+
+img {
+    object-fit: cover;
+    object-position: center;
+}
+
+.txt-color {
+    color: #F0F5F9;
+}
+
+.txt-color-theme {
+    color: #FC6011;
+}
+
+.justify-end {
+    justify-content: end;
+}
+
+.txt-cntr {
+    text-align: center;
+}
+
+.margin-top-10 {
+    margin-top: 10px;
+}
+
+.container-cntr {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flex-row {
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+}
+
+#personal-detail-container {
+    padding: 20px;
+    width: 45%;
+    margin-right: 10px;
+}
+
+#car-detail-container {
+    width: 45%;
+    padding: 20px;
+    margin-left: 10px;
+}
+
+.g-form-container {
+    width: 30%;
+}
+
+.g-form-container>* {
+    margin: 10px 0;
+}
+
+.btn {
+    background-color: #FC6011;
+}
+
+.btn:hover {
+    background-color: #FC6011;
+}
+
+#login {
+    padding-top: 50px;
+}
+
+#login .form-wrap {
+    border: 1px solid #fc6011;
+    width: 30%;
+    padding: 30px;
+    margin: 0 auto;
+    box-shadow: 0 0 5px #ccab9b;
+}
+
+#login h1 {
+    color: #FC6011;
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+
+#login .form-group {
+    margin-bottom: 25px;
+}
+
+#login .forget {
+    font-size: 13px;
+    text-align: center;
+    display: block;
+}
+
+footer {
+    background-color: #FC6011;
+    padding: 16px 0px;
+    width: 100%;
+    bottom: 0;
+}
