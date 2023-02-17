@@ -37,6 +37,10 @@ img {
     margin-top: 10px;
 }
 
+.decoration-none {
+    text-decoration: none;
+}
+
 .container-cntr {
     margin-top: 30px;
     width: 100%;

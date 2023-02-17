@@ -9,55 +9,54 @@
     <%- include('../views/partials/navbar.ejs'); %>
         <div class="margin-top-10">
             <h1 class="txt-cntr ">Book your G2 driving test now</h1>
-            <div class="container-cntr flex-row ">
-                <section id="personal-detail-container">
-                    <h4 class="txt-color-theme">Enter your Information</h4>
-                    <form>
+            <form action="/g2/addG2Driver" method="POST">
+                <div class="container-cntr flex-row ">
+                    <section id="personal-detail-container">
+                        <h4 class="txt-color-theme">Enter your Information</h4>
                         <div class="mb-3">
                             <label for="firstName" class="form-label">First Name</label>
-                            <input type="text" class="form-control" id="firstName" aria-describedby="emailHelp">
+                            <input type="text" class="form-control" name="firstName" id="firstName" aria-describedby="emailHelp" required>
                         </div>
                         <div class="mb-3">
                             <label for="lastName" class="form-label">Last Name</label>
-                            <input type="text" class="form-control" id="lastName">
+                            <input type="text" class="form-control" name="lastName" id="lastName" required>
                         </div>
                         <div class="mb-3">
                             <label for="licenseNumber" class="form-label">License number</label>
-                            <input type="text" class="form-control" id="licenseNumber">
+                            <input type="text" class="form-control" name="licenseNumber" id="licenseNumber" required>
                         </div>
                         <div class="mb-3">
                             <label for="age" class="form-label">Age</label>
-                            <input type="number" class="form-control" id="age">
+                            <input type="number" class="form-control" name="age" id="age" required>
                         </div>
                         <div class="mb-3">
                             <label for="dob" class="form-label">DOB</label>
-                            <input type="date" class="form-control" id="dob">
+                            <input type="date" class="form-control" name="dob" id="dob" required>
                         </div>
-                        <button type="button" class="btn txt-color">Book Test</button>
-                    </form>
-                </section>
-                <section id="car-detail-container">
-                    <h4 class="txt-color-theme">Enter car details</h4>
-                    <form>
+                        <button type="submit" class="btn txt-color">Book Test</button>
+                    </section>
+                    <section id="car-detail-container">
+                        <h4 class="txt-color-theme">Enter car details</h4>
+
                         <div class="mb-3">
-                            <label for="carName" class="form-label">Car Name</label>
-                            <input type="text" class="form-control" id="carName" aria-describedby="emailHelp">
-                        </div>
-                        <div class="mb-3">
-                            <label for="carModel" class="form-label">Model</label>
-                            <input type="number" class="form-control" id="carModel">
+                            <label for="make" class="form-label">Car Name</label>
+                            <input type="text" class="form-control" name="make" id="make" required>
                         </div>
                         <div class="mb-3">
-                            <label for="registerYear" class="form-label">Register Year</label>
-                            <input type="number" class="form-control" id="registerYear">
+                            <label for="model" class="form-label">Model</label>
+                            <input type="text" class="form-control" name="model" id="model" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="year" class="form-label">Register Year</label>
+                            <input type="number" class="form-control" name="year" id="year" required>
                         </div>
                         <div class="mb-3">
                             <label for="plateNumber" class="form-label">Plate Number</label>
-                            <input type="number" class="form-control" id="plateNumber">
+                            <input type="text" class="form-control" name="plateNumber" id="plateNumber" required>
                         </div>
-                    </form>
-                </section>
-            </div>
+                    </section>
+                </div>
+            </form>
         </div>
         <%- include('../views/partials/footer.ejs'); %>
             <%- include('../views/partials/scripts.ejs'); %>
