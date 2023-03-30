@@ -2,10 +2,12 @@
 <html lang="en">
 
 <head>
-    <%- include('../views/partials/head.ejs' , {title: 'Dashboard'} ) %>
+    <%- include('../views/partials/head.ejs' , {title: 'Home'} ) %>
 </head>
 
 <body>
+    <div id="page-container">
+        <div id="content-wrap">
     <%- include('../views/partials/navbar.ejs'); %>
         <%- include('../views/partials/carousel.ejs'); %>
             <div class="container-cntr ">
@@ -16,6 +18,8 @@
             </div>
             <%- include('../views/partials/footer.ejs'); %>
                 <%- include('../views/partials/scripts.ejs'); %>
+    </div>
+</div>
 </body>
 
 </html>

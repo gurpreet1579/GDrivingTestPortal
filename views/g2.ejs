@@ -6,10 +6,18 @@
 </head>
 
 <body>
+    <div id="page-container">
+        <div id="content-wrap">
     <%- include('../views/partials/navbar.ejs'); %>
         <div class="margin-top-10">
             <h1 class="txt-cntr ">Book your G2 driving test now</h1>
-            <form action="/g2/addG2Driver" method="POST">
+            <% if ( typeof updateMessage !== 'undefined') { %>
+                <h5 class="txt-color-theme txt-cntr"><%= updateMessage %></h5>
+            <% } %>
+            <% if ( typeof updateInfoMessage !== 'undefined' && updateInfoMessage.length !== 0) { %>
+                <h5 class="txt-color-theme txt-cntr"><%= updateInfoMessage %></h5>
+            <% } %>
+            <form action="/g2/updateG2Driver" method="POST">
                 <div class="container-cntr flex-row ">
                     <section id="personal-detail-container">
                         <h4 class="txt-color-theme">Enter your Information</h4>
@@ -33,7 +41,7 @@
                             <label for="dob" class="form-label">DOB</label>
                             <input type="date" class="form-control" name="dob" id="dob" required>
                         </div>
-                        <button type="submit" class="btn txt-color">Book Test</button>
+                        <button type="submit" class="btn txt-color">Update user</button>
                     </section>
                     <section id="car-detail-container">
                         <h4 class="txt-color-theme">Enter car details</h4>
@@ -60,6 +68,9 @@
         </div>
         <%- include('../views/partials/footer.ejs'); %>
             <%- include('../views/partials/scripts.ejs'); %>
+    
+        </div>    
+    </div>
 </body>
 
 </html>

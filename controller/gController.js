@@ -1,10 +1,21 @@
 const User = require('../model/user');
 
 module.exports.g = (req, res) => {
-    res.render('g', {
-        user: '',
-        foundUser: 'User not yet searched'
+    User.findById(req.session.userId, (error, user ) =>{
+        if(error || !user )
+            return res.redirect('/login');
+        else{
+            let firstTimeLoginMessage='';
+            if( user.firstName == 'default')
+            firstTimeLoginMessage = 'Update your personal and car information first!';
+            res.render('g', {
+                user: user,
+                updateInfoMessage: firstTimeLoginMessage,
+                session: req.session
+            });
+        }
     });
+    
 };
 
 module.exports.getUserByLicense = (req, res) => {
