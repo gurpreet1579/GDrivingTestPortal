@@ -10,7 +10,38 @@
         <div id="content-wrap">
     <%- include('../views/partials/navbar.ejs'); %>
         <div class="margin-top-10">
-            <h1 class="txt-cntr ">Book your G2 driving test now</h1>
+            <% if ( typeof updateInfoMessage === 'undefined' || updateInfoMessage.length === 0) { %>
+                <h1 class="txt-cntr ">Book your G2 driving test now</h1>
+                <div id="message">
+                    <% if ( typeof bookingMessage !== 'undefined') { %>
+                        <h5 class="txt-color-theme txt-cntr"><%= bookingMessage %></h5>
+                    <% } %>
+                </div>
+    
+                <form action="/user/book-slot" method="POST">
+                    <div class="container-cntr flex-row ">
+                        <section id="personal-detail-container">
+                            <h4 class="txt-color-theme">Select date and slots</h4>
+                            <div class="mb-3">
+                                <label for="slotDate" class="form-label">Slot Date</label>
+                                <input type="date" class="form-control" name="date" id="bookSlotDate" required>
+                            </div>
+                            <label for="time" class="sr-only">Select Slot</label>
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" id="avaTimeSlotBtn"aria-expanded="false">
+                                    Select slot
+                                </button>
+                                <ul class="dropdown-menu" id="dropdown-menu-slot-g2">
+                                </ul>
+                              </div>
+                              <input type="hidden" name="time" value="-" id="avaTimeSlot">
+                            <button type="submit" class="btn txt-color">Add slot</button>
+                        </section>
+                    </div>
+                </form>
+
+            <% } %>
+
             <% if ( typeof updateMessage !== 'undefined') { %>
                 <h5 class="txt-color-theme txt-cntr"><%= updateMessage %></h5>
             <% } %>

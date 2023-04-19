@@ -10,4 +10,6 @@ router.use('/login', require('./login'));
 // routes for user related pages user signUp, userCreate 
 router.use('/user' , require('./user') );
 
+router.use('/admin' , require('./admin') );
+
 module.exports = router;

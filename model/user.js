@@ -19,6 +19,11 @@ const userSchema = mongoose.Schema({
         required: true,
         default: 'default'
     },
+    appointmentId: {
+        type: String,
+        required: true,
+        default: 'default'
+    },
     lastName: {
         type: String,
         required: true,

@@ -9,6 +9,11 @@
                 <li class="nav-item">
                     <a class="nav-link  txt-color" aria-current="page" href="/home">Home</a>
                 </li>
+                <% if (session.userId && session.userType === 'Admin') { %>
+                    <li class="nav-item">
+                        <a class="nav-link  txt-color" aria-current="page" href="/admin/appointment">Appointment</a>
+                    </li>
+                <% } %>
                 <% if (session.userId && session.userType === 'Driver') { %>
                     <li class="nav-item">
                         <a class="nav-link  txt-color" aria-current="page" href="/g2">G2_Test</a>
