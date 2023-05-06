@@ -65,6 +65,9 @@ module.exports.createSession = (req , res) =>{
         res.render('g2' , { updateInfoMessage: firstTimeLoginMessage , session: req.session } );
       else if(user.userType === 'Admin')
       res.render('appointment' , { updateInfoMessage: firstTimeLoginMessage , session: req.session } );
+      else if(user.userType === 'Examiner')
+      res.redirect('/examiner/schedule');
+
     } else { 
       res.render('login' , { passwordError: 'Incorrect Password' , session: req.session } );
     }
@@ -114,7 +117,7 @@ module.exports.getSlot = async ( req,res ) => {
 }
 
 module.exports.addSlot = async (req, res) => {
-  const { date, time } = req.body;
+  const { date, time , testType } = req.body;
 
   // find the id of selected_slot
     let appointmentID =[];
@@ -134,7 +137,8 @@ module.exports.addSlot = async (req, res) => {
   const userId = req.session.userId;
     User.updateOne( { _id: userId },
         { $set: {
-          appointmentId: appointmentID[0]
+          appointmentId: appointmentID[0],
+          appointmentType: testType
         }},
         {new: true},
         (err, user) => {

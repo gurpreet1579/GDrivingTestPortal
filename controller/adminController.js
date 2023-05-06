@@ -1,3 +1,4 @@
+const User = require('../model/user');
 const Appointment = require('../model/appointment');
 // app.get('/availability', function(req, res) {
  
@@ -55,4 +56,16 @@ module.exports.getPotentialSlot = (req, res ) =>{
                 }
             });
     });
+}
+
+module.exports.getTestResult = async (req, res) => {
+    await User.find( (error, users) => {
+        if (users.length > 0) {
+            return res.render('result', { session: req.session, users: users });
+        } else {
+          console.log('no scheduled users found');
+          return res.render('result', { session: req.session, users: [] });
+        }
+      }).clone().catch(function(err){ console.log(err)});
+     
 }

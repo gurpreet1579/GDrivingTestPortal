@@ -24,6 +24,21 @@ const userSchema = mongoose.Schema({
         required: true,
         default: 'default'
     },
+    appointmentType: {
+        type: String,
+        required: true,
+        default: 'default'
+    },
+    comment: {
+        type: String,
+        required: true,
+        default: 'Currently not available'
+    },
+    testResult: {
+        type: String,
+        required: true,
+        default: 'Currently not available'
+    },
     lastName: {
         type: String,
         required: true,

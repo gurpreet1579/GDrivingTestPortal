@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../views/partials/head.ejs', {title: 'G2 Test'}); %>
+</head>
+
+<body>
+    <div id="page-container">
+        <div id="content-wrap">
+    <%- include('../views/partials/navbar.ejs'); %>
+        <div class="margin-top-10">
+            <h1 class="txt-cntr ">Driver details</h1>
+            <!-- <% if ( typeof updateInfoMessage === 'undefined' || updateInfoMessage.length === 0) { %>
+                <h1 class="txt-cntr ">Book your G2 driving test now</h1>
+                <div id="message">
+                    <% if ( typeof bookingMessage !== 'undefined') { %>
+                        <h5 class="txt-color-theme txt-cntr"><%= bookingMessage %></h5>
+                    <% } %> -->
+        </div>
+
+        <% if ( user && appointment ) { %>
+            <form action="/examiner/add-result" method="post">
+                <div class="container-cntr flex-row ">
+                    <section id="personal-detail-container">
+                        <h4 class="txt-color-theme">Driver Information</h4>
+                        <div class="mb-3">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input readonly value="<%= user.firstName %>" type="text" class="form-control" name="firstName" id="firstName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input readonly value="<%= user.lastName %>" type="text" class="form-control" name="lastName" id="lastName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="licenseNumber" class="form-label">License number</label>
+                            <input readonly value="<%= user.licenseNumber %>" type="text" class="form-control" name="licenseNumber" id="licenseNumber">
+                        </div>
+                        <div class="mb-3">
+                            <label for="age" class="form-label">Appointment Time</label>
+                            <input readonly type="text" class="form-control" name="time" id="time" value="<%= appointment.time %>">
+                        </div>
+                        <div class="mb-3">
+                            <label for="dob" class="form-label">Appointment Date</label>
+                            <input readonly value=" <%= appointment.date %>" type="text" class="form-control" name="date" id="date">
+                        </div>
+                    </section>
+                    <section id="car-detail-container">
+                        <h4 class="txt-color-theme">Comments and result</h4>
+                       
+                            <div class="mb-3">
+                              <label for="comment" class="form-label">Comments</label>
+                              <textarea class="form-control" id="comment"  name="comment" rows="3"></textarea>
+                            </div>
+                            <div class="mb-3">
+                              <label for="result" class="form-label">Results</label>
+                              <input type="text" class="form-control" name="result" id="results">
+                            </div>
+                            <input type="hidden" name="userId" value="<%= user._id %>" id="userId" >
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                    </section>
+                </div>
+            </form>
+            <% } %>
+
+
+            <!-- <% } %> -->
+
+            <!-- <% if ( typeof updateMessage !== 'undefined') { %>
+                <h5 class="txt-color-theme txt-cntr"><%= updateMessage %></h5>
+            <% } %>
+            <% if ( typeof updateInfoMessage !== 'undefined' && updateInfoMessage.length !== 0) { %>
+                <h5 class="txt-color-theme txt-cntr"><%= updateInfoMessage %></h5>
+            <% } %> -->
+        </div>
+        <%- include('../views/partials/footer.ejs'); %>
+            <%- include('../views/partials/scripts.ejs'); %>
+    
+        </div>    
+    </div>
+</body>
+
+</html>

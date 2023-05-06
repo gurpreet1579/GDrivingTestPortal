@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../views/partials/head.ejs' , {title: 'G Test'}); %>
+</head>
+
+<body>
+    <div id="page-container">
+        <div id="content-wrap">
+    <%- include('../views/partials/navbar.ejs'); %>
+        <%- include('../views/partials/carousel.ejs'); %>
+
+                    <% if ( users ) { %>
+                        <% users.forEach(function(user) { %>
+                            <% if ( user.testResult != 'Currently not available' ) { %>
+                            <div class="container-cntr flex-row ">
+                                <section id="personal-detail-container">
+                                    <div class="mb-3">
+                                        <label for="firstName" class="form-label">First Name</label>
+                                        <input readonly value="<%= user.firstName %>" type="text" class="form-control" name="firstName" id="firstName">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="lastName" class="form-label">Last Name</label>
+                                        <input readonly value="<%= user.lastName %>" type="text" class="form-control" name="lastName" id="lastName">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="licenseNumber" class="form-label">License number</label>
+                                        <input readonly value="<%= user.licenseNumber %>" type="text" class="form-control" name="licenseNumber" id="licenseNumber">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="year" class="form-label">Comment By examiner </label>
+                                        <input readonly type="text" class="form-control" name="comment" id="comment" value="<%= user.comment %>">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="plateNumber" class="form-label">Test result</label>
+                                        <input  readonly type="text" class="form-control" name="result" id="result" value="<%= user.testResult %>">
+                                    </div>
+                                </section>
+                            </div>
+                            <% } %>
+                        <% }); %>
+                        <% } %>
+                            <%- include('../views/partials/footer.ejs'); %>
+                                <%- include('../views/partials/scripts.ejs'); %>
+        </div>
+    </div>
+</body>
+
+</html>

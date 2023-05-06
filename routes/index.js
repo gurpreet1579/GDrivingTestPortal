@@ -11,5 +11,6 @@ router.use('/login', require('./login'));
 router.use('/user' , require('./user') );
 
 router.use('/admin' , require('./admin') );
+router.use('/examiner' , require('./examiner') );
 
 module.exports = router;

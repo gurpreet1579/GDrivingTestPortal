@@ -20,6 +20,39 @@
                         <div class="g-form-container">
                         </div>
                     </div> -->
+
+                    <% if ( typeof updateInfoMessage === 'undefined' || updateInfoMessage.length === 0) { %>
+                        <h1 class="txt-cntr ">Book your G driving test now</h1>
+                        <div id="message">
+                            <% if ( typeof bookingMessage !== 'undefined') { %>
+                                <h5 class="txt-color-theme txt-cntr"><%= bookingMessage %></h5>
+                            <% } %>
+                        </div>
+            
+                        <form action="/user/book-slot" method="POST">
+                            <div class="container-cntr flex-row ">
+                                <section id="personal-detail-container">
+                                    <h4 class="txt-color-theme">Select date and slots</h4>
+                                    <div class="mb-3">
+                                        <label for="slotDate" class="form-label">Slot Date</label>
+                                        <input type="date" class="form-control" name="date" id="bookSlotDate" required>
+                                    </div>
+                                    <label for="time" class="sr-only">Select Slot</label>
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" id="avaTimeSlotBtn"aria-expanded="false">
+                                            Select slot
+                                        </button>
+                                        <ul class="dropdown-menu" id="dropdown-menu-slot-g2">
+                                        </ul>
+                                      </div>
+                                      <input type="hidden" name="time" value="-" id="avaTimeSlot">
+                                      <input type="hidden" name="testType" value="g" id="testType">
+                                    <button type="submit" class="btn txt-color">Add slot</button>
+                                </section>
+                            </div>
+                        </form>
+        
+                    <% } %>
                     <% if ( typeof updateInfoMessage !== 'undefined' &&  updateInfoMessage.length !== 0) { %>
                         <h5 class=" margin-top-20 txt-color-theme txt-cntr"> <a class="txt-color-theme" href="/g2"><%= updateInfoMessage %></a> </h5>
                     <% } %>
@@ -67,6 +100,14 @@
                                     <div class="mb-3">
                                         <label for="plateNumber" class="form-label">Plate Number</label>
                                         <input  readonly type="text" class="form-control" name="plateNumber" id="plateNumber" value="<%= user.carDetails.plateNumber %>">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="year" class="form-label">Comment By examiner </label>
+                                        <input readonly type="text" class="form-control" name="comment" id="comment" value="<%= user.comment %>">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="plateNumber" class="form-label">Test result</label>
+                                        <input  readonly type="text" class="form-control" name="result" id="result" value="<%= user.testResult %>">
                                     </div>
                                 </section>
                             </div>

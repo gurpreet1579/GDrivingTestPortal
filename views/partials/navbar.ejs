@@ -24,6 +24,16 @@
                         <a class="nav-link txt-color" href="/g">G_Test</a>
                     </li>
                 <% } %>
+                <% if (session.userId && session.userType === 'Examiner' ) { %>
+                    <li class="nav-item">
+                        <a class="nav-link txt-color" href="/examiner/schedule">Schedule</a>
+                    </li>
+                <% } %>
+                <% if (session.userId && session.userType === 'Admin' ) { %>
+                    <li class="nav-item">
+                        <a class="nav-link txt-color" href="/admin/result">Result</a>
+                    </li>
+                <% } %>
                 <% if (!session.userId ) { %>
                     <li class="nav-item">
                         <a class="nav-link txt-color" href="/login">Log In</a>
