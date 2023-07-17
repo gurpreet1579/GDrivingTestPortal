@@ -9,7 +9,7 @@ app.use(expressSession({
     resave: false,
     saveUninitialized: false
   }));
-    
+const port = 3100;
 const DB = require('./config/mongoose');
 
 
@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/public'));
 
-app.listen(3100, () => {
+app.listen( process.env.PORT || port, () => {
     console.log("App is running at port 3100!!")
 })
 
