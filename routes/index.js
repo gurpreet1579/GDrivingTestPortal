@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-router.use("/home", require("./home"));
+router.use("/", require("./home"));
 router.use("/g", require("./g"));
 router.use("/user-detail", require("./user-detail"));
 
