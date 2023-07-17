@@ -16,9 +16,11 @@ img {
     object-fit: cover;
     object-position: center;
 }
-.margin-top-20{
- margin-top: 20px;
+
+.margin-top-20 {
+    margin-top: 20px;
 }
+
 .txt-color {
     color: #F0F5F9;
 }
@@ -80,11 +82,13 @@ img {
 .btn {
     background-color: #FC6011;
 }
-.dropdown{
+
+.dropdown {
     padding: 7px 0;
 }
+
 .dropdown button {
-    width: 100%;
+    width: 25%;
 }
 
 .btn:hover {
@@ -120,13 +124,15 @@ img {
     text-align: center;
     display: block;
 }
+
 #page-container {
     position: relative;
     min-height: 100vh;
-  }
-  #content-wrap {
+}
+
+#content-wrap {
     padding-bottom: 3rem;
-  }
+}
 
 footer {
     background-color: #FC6011;

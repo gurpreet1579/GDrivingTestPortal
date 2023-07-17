@@ -2,87 +2,75 @@
 <html lang="en">
 
 <head>
-    <%- include('../views/partials/head.ejs', {title: 'Schedule'}); %>
+  <%- include('../views/partials/head.ejs', {title: 'Schedule' }); %>
 </head>
 
 <body>
-    <div id="page-container">
-        <div id="content-wrap">
-    <%- include('../views/partials/navbar.ejs'); %>
+  <div id="page-container">
+    <div id="content-wrap">
+      <%- include('../views/partials/navbar.ejs'); %>
         <div class="margin-top-10">
-            <h1 class="txt-cntr ">Your schedule</h1>
-            <!-- <% if ( typeof updateInfoMessage === 'undefined' || updateInfoMessage.length === 0) { %>
+          <h1 class="txt-cntr ">Your schedule</h1>
+          <!-- <% if ( typeof updateInfoMessage === 'undefined' || updateInfoMessage.length === 0) { %>
                 <h1 class="txt-cntr ">Book your G2 driving test now</h1>
                 <div id="message">
                     <% if ( typeof bookingMessage !== 'undefined') { %>
                         <h5 class="txt-color-theme txt-cntr"><%= bookingMessage %></h5>
                     <% } %> -->
         </div>
+
         <div class="container">
-            <form action="/examiner/filtered-scheduled-driver" method="post">
-              <div class="btn-group-toggle" data-toggle="buttons">
-                <input class="form-check-input" type="radio" name="appointmentType" id="g2" value="g2" checked>
-                <label class="form-check-label" for="g2">
-                  g2
-                </label>
-                <input class="form-check-input" type="radio" name="appointmentType" id="g" value="g" >
-                    <label class="form-check-label" for="g">
-                     g
-                </label>
-              </div>
-              <button type="submit" class="btn btn-primary ml-2">Filter</button>
-            </form>
-          </div>
-          
-          
-          
-        <div class="container">
-            <form action="/examiner/scheduled-driver" method="post">
-              <div class="table-responsive">
-                <table class="table">
-                  <thead>
+          <form action="/examiner/scheduled-driver" method="post">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>License Number</th>
+                    <th>Appointment Type</th>
+                    <th>Get Details</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% user.forEach((user)=> { %>
                     <tr>
-                      <th>First Name</th>
-                      <th>Appointment Type</th>
-                      <th>Get Details</th>
+                      <td>
+                        <%= user.licenseNumber %>
+                      </td>
+                      <td>
+                        <%= user.appointmentType %>
+                      </td>
+                      <td>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="user" id="<%= user.userName %>"
+                            value="<%= user.userName %>" checked>
+                          <label class="form-check-label" for="<%= user.userName %>"></label>
+                        </div>
+                      </td>
                     </tr>
-                  </thead>
-                  <tbody>
-                    <% user.forEach((user) => { %>
-                      <tr>
-                        <td><%= user.firstName %></td>
-                        <td><%= user.appointmentType %></td>
-                        <td>
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="user" id="<%= user.userName %>" value="<%= user.userName %>" checked>
-                            <label class="form-check-label" for="<%= user.userName %>"></label>
-                          </div>
-                        </td>
-                      </tr>
                     <% }) %>
-                  </tbody>
-                </table>
-              </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-          </div>
-          
-          
+                </tbody>
+              </table>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
 
-            <!-- <% } %> -->
 
-            <!-- <% if ( typeof updateMessage !== 'undefined') { %>
+
+        <!-- <% } %> -->
+
+        <!-- <% if ( typeof updateMessage !== 'undefined') { %>
                 <h5 class="txt-color-theme txt-cntr"><%= updateMessage %></h5>
             <% } %>
             <% if ( typeof updateInfoMessage !== 'undefined' && updateInfoMessage.length !== 0) { %>
                 <h5 class="txt-color-theme txt-cntr"><%= updateInfoMessage %></h5>
             <% } %> -->
-        </div>
-        <%- include('../views/partials/footer.ejs'); %>
-            <%- include('../views/partials/scripts.ejs'); %>
-    
-        </div>    
     </div>
+    <%- include('../views/partials/footer.ejs'); %>
+      <%- include('../views/partials/scripts.ejs'); %>
+
+  </div>
+  </div>
 </body>
 
 </html>

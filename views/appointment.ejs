@@ -2,47 +2,51 @@
 <html lang="en">
 
 <head>
-    <%- include('../views/partials/head.ejs' , {title: 'Appointment'} ) %>
+    <%- include('../views/partials/head.ejs' , {title: 'Appointment' } ) %>
 </head>
 
 <body>
     <div id="page-container">
         <div id="content-wrap">
-    <%- include('../views/partials/navbar.ejs'); %>
-        <%- include('../views/partials/carousel.ejs'); %>
-        <div class="margin-top-10">
-            <h1 class="txt-cntr ">Add appointment slots</h1>
-            <% if ( typeof slotMessage !== 'undefined') { %>
-                <h5 class="txt-color-theme txt-cntr"><%= slotMessage %></h5>
-            <% } %>
-            <!-- <% if ( typeof updateInfoMessage !== 'undefined' && updateInfoMessage.length !== 0) { %>
+            <%- include('../views/partials/navbar.ejs'); %>
+                <%- include('../views/partials/carousel.ejs'); %>
+                    <div class="margin-top-10">
+                        <h1 class="txt-cntr ">Add appointment slots</h1>
+                        <% if ( typeof slotMessage !=='undefined' ) { %>
+                            <h5 class="txt-color-theme txt-cntr">
+                                <%= slotMessage %>
+                            </h5>
+                            <% } %>
+                                <!-- <% if ( typeof updateInfoMessage !== 'undefined' && updateInfoMessage.length !== 0) { %>
                 <h5 class="txt-color-theme txt-cntr"><%= updateInfoMessage %></h5>
             <% } %> -->
-            <form action="/admin/createSlot" method="POST">
-                <div class="container-cntr flex-row ">
-                    <section id="personal-detail-container">
-                        <h4 class="txt-color-theme">Select date and slots</h4>
-                        <div class="mb-3">
-                            <label for="potentialSlotDate" class="form-label">Slot Date</label>
-                            <input type="date" class="form-control" name="date" id="potentialSlotDate" required>
-                        </div>
-                        <label for="userType" class="sr-only">User Type</label>
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" id="timeSlotBtn"aria-expanded="false">
-                            </button>
-                            <ul class="dropdown-menu" id="dropdown-menu-slot">
-                            </ul>
-                          </div>
-                          <input type="hidden" name="time" value="" id="potentialTimeSlot">
-                        <button type="submit" class="btn txt-color">Add slot</button>
-                    </section>
-                </div>
-            </form>
+                                <form action="/admin/createSlot" method="POST">
+                                    <div class="container-cntr flex-row ">
+                                        <section id="personal-detail-container">
+                                            <h4 class="txt-color-theme">Select date and slots</h4>
+                                            <div class="mb-3">
+                                                <label for="potentialSlotDate" class="form-label">Slot Date</label>
+                                                <input type="date" class="form-control" name="date"
+                                                    id="potentialSlotDate" required>
+                                            </div>
+                                            <label for="userType" class="sr-only">Time</label>
+                                            <div class="dropdown">
+                                                <button class="btn btn-secondary dropdown-toggle" type="button"
+                                                    data-bs-toggle="dropdown" id="timeSlotBtn" aria-expanded="false">
+                                                </button>
+                                                <ul class="dropdown-menu" id="dropdown-menu-slot">
+                                                </ul>
+                                            </div>
+                                            <input type="hidden" name="time" value="" id="potentialTimeSlot">
+                                            <button type="submit" class="btn txt-color">Add slot</button>
+                                        </section>
+                                    </div>
+                                </form>
+                    </div>
+                    <%- include('../views/partials/footer.ejs'); %>
+                        <%- include('../views/partials/scripts.ejs'); %>
         </div>
-            <%- include('../views/partials/footer.ejs'); %>
-                <%- include('../views/partials/scripts.ejs'); %>
     </div>
-</div>
 </body>
 
 </html>

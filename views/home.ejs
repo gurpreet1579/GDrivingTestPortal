@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <%- include('../views/partials/head.ejs' , {title: 'Home'} ) %>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="page-container">
-        <div id="content-wrap">
-    <%- include('../views/partials/navbar.ejs'); %>
-        <%- include('../views/partials/carousel.ejs'); %>
-            <div class="container-cntr ">
-                <h1>You can book G2/G drive test here </h1>
-                <div class="g-form-container">
-                    <span>Select option from above navigation to book your test.</span>
-                </div>
-            </div>
-            <%- include('../views/partials/footer.ejs'); %>
-                <%- include('../views/partials/scripts.ejs'); %>
+      <div id="content-wrap">
+        <%- include('../views/partials/navbar.ejs'); %> <%-
+        include('../views/partials/carousel.ejs'); %>
+        <div class="container-cntr">
+          <h1>You can book G drive test here</h1>
+          <div class="g-form-container">
+            <span class="txt-cntr"
+              ><a class="nav-link" aria-current="page" href="/g"
+                >Go to G or click here</a
+              ></span
+            >
+          </div>
+        </div>
+        <%- include('../views/partials/footer.ejs'); %> <%-
+        include('../views/partials/scripts.ejs'); %>
+      </div>
     </div>
-</div>
-</body>
-
+  </body>
 </html>
