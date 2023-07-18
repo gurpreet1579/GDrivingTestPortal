@@ -5,8 +5,10 @@ const User = require('../model/user');
 // else redirect to home or login
 module.exports = (req, res, next) => {
     User.findById(req.session.userId, (error, user ) =>{
-    if(error || !user ){
-        console.log(error);
+    if(error){
+        return res.error(error);
+    }
+    if(!user ){
         return res.redirect('/login');
     }
     else if(req.session.userType !== 'Examiner' )
