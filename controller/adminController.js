@@ -1,8 +1,5 @@
 const User = require('../model/user');
 const Appointment = require('../model/appointment');
-// app.get('/availability', function(req, res) {
- 
-//   });
 
 module.exports.appointment = (req, res) => {
     res.render('appointment' ,{ session: req.session });

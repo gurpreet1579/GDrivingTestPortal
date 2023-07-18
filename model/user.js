@@ -29,6 +29,15 @@ const userSchema = mongoose.Schema({
         required: true,
         default: 'default'
     },
+    appointmentDate: {
+        type: Date,
+        required: false,
+    },
+    appointmentTime:{
+        type: String,
+        required: true,
+        default: 'Currently not available'
+    },
     comment: {
         type: String,
         required: true,
@@ -48,11 +57,6 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true,
         default: 'default'
-    },
-    age: {
-        type: Number,
-        required: true,
-        default: 0
     },
     dob: {
         type: Date,

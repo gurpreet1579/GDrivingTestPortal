@@ -1,190 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <%- include('../views/partials/head.ejs' , {title: 'G Test'}); %>
-  </head>
 
-  <body>
-    <div id="page-container">
-      <div id="content-wrap">
-        <%- include('../views/partials/navbar.ejs'); %> <%-
-        include('../views/partials/carousel.ejs'); %>
+<head>
+  <%- include('../views/partials/head.ejs' , {title: 'G Test' }); %>
+</head>
 
-        <!-- <% if ( typeof updateInfoMessage === 'undefined' || updateInfoMessage.length === 0) { %>
-                        <h1 class="txt-cntr ">Book your G driving test now</h1>
-                        <div id="message">
-                            <% if ( typeof bookingMessage !== 'undefined') { %>
-                                <h5 class="txt-color-theme txt-cntr"><%= bookingMessage %></h5>
-                            <% } %>
-                        </div>
-            
-                        <form action="/user/book-slot" method="POST">
-                            <div class="container-cntr flex-row ">
-                                <section id="personal-detail-container">
-                                    <h4 class="txt-color-theme">Select date and slots</h4>
-                                    <div class="mb-3">
-                                        <label for="slotDate" class="form-label">Slot Date</label>
-                                        <input type="date" class="form-control" name="date" id="bookSlotDate" required>
-                                    </div>
-                                    <label for="time" class="sr-only">Select Slot</label>
-                                    <div class="dropdown">
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" id="avaTimeSlotBtn"aria-expanded="false">
-                                            Select slot
-                                        </button>
-                                        <ul class="dropdown-menu" id="dropdown-menu-slot-g2">
-                                        </ul>
-                                      </div>
-                                      <input type="hidden" name="time" value="-" id="avaTimeSlot">
-                                      <input type="hidden" name="testType" value="g" id="testType">
-                                    <button type="submit" class="btn txt-color">Add slot</button>
-                                </section>
-                            </div>
-                        </form>
-        
-                    <% } %> -->
-        <!-- <% if ( typeof updateInfoMessage !== 'undefined' &&  updateInfoMessage.length !== 0) { %>
-                        <h5 class=" margin-top-20 txt-color-theme txt-cntr"> <a class="txt-color-theme" href="/g2"><%= updateInfoMessage %></a> </h5>
-                    <% } %> -->
-        <% if ( updateInfoMessage.length === 0 && user ) { %>
-        <h1 class="txt-cntr margin-top-20">User details</h1>
-        <form action="/g2/updateG2Driver/<%= user._id %>" method="POST">
-          <div class="container-cntr flex-row">
-            <section id="personal-detail-container">
-              <h4 class="txt-color-theme">Your Information</h4>
-              <div class="mb-3">
-                <label for="firstName" class="form-label">First Name</label>
-                <input
-                  readonly
-                  value="<%= user.firstName %>"
-                  type="text"
-                  class="form-control"
-                  name="firstName"
-                  id="firstName"
-                />
+<body>
+  <div id="page-container">
+    <div id="content-wrap">
+      <%- include('../views/partials/navbar.ejs'); %> <%- include('../views/partials/carousel.ejs'); %>
+
+          <% if ( updateInfoMessage.length===0 && user ) { %>
+            <h1 class="txt-cntr margin-top-20">User details</h1>
+            <form action="/g2/updateG2Driver/<%= user._id %>" method="POST">
+              <div class="container-cntr flex-row">
+                <section id="personal-detail-container">
+                  <h4 class="txt-color-theme">Your Information</h4>
+                  <div class="mb-3">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input readonly value="<%= user.firstName %>" type="text" class="form-control" name="firstName"
+                      id="firstName" />
+                  </div>
+                  <div class="mb-3">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input readonly value="<%= user.lastName %>" type="text" class="form-control" name="lastName"
+                      id="lastName" />
+                  </div>
+                  <div class="mb-3">
+                    <label for="licenseNumber" class="form-label">License number</label>
+                    <input readonly value="<%= user.licenseNumber %>" type="text" class="form-control"
+                      name="licenseNumber" id="licenseNumber" />
+                  </div>
+                  <div class="mb-3">
+                    <label for="dob" class="form-label">DOB</label>
+                    <input readonly value=" <%= user.dob.toISOString().split('T')[0]; %>" type="text"
+                      class="form-control" name="dob" id="dob" />
+                  </div>
+                  <% if ( (user.appointmentDate!=null) ) { %>
+                    <div class="mb-3">
+                      <label for="dob" class="form-label">Appointment Date</label>
+                      <input readonly value=" <%= user.appointmentDate.toISOString().split('T')[0]; %>" type="text"
+                        class="form-control" name="appointmentDate" id="appointmentDate" />
+                    </div>
+                    <% } %>
+                      <div class="mb-3">
+                        <label for="dob" class="form-label">Appointment Time</label>
+                        <input readonly value=" <%= user.appointmentTime %>" type="text" class="form-control"
+                          name="appointmentTime" id="appointmentTime" />
+                      </div>
+                </section>
+                <section id="car-detail-container">
+                  <h4 class="txt-color-theme">Your car details</h4>
+                  <div class="mb-3">
+                    <label for="make" class="form-label">Car Name</label>
+                    <input readonly type="text" class="form-control" name="make" id="make"
+                      value="<%= user.carDetails.make %>" />
+                  </div>
+                  <div class="mb-3">
+                    <label for="model" class="form-label">Model</label>
+                    <input readonly type="text" class="form-control" name="model" id="model"
+                      value="<%= user.carDetails.model %>" />
+                  </div>
+                  <div class="mb-3">
+                    <label for="year" class="form-label">Register Year</label>
+                    <input readonly type="text" class="form-control" name="year" id="year"
+                      value="<%= user.carDetails.year %>" />
+                  </div>
+                  <div class="mb-3">
+                    <label for="plateNumber" class="form-label">Plate Number</label>
+                    <input readonly type="text" class="form-control" name="plateNumber" id="plateNumber"
+                      value="<%= user.carDetails.plateNumber %>" />
+                  </div>
+                  <div class="mb-3">
+                    <label for="year" class="form-label">Comment By examiner
+                    </label>
+                    <input readonly type="text" class="form-control" name="comment" id="comment"
+                      value="<%= user.comment %>" />
+                  </div>
+                  <div class="mb-3">
+                    <label for="plateNumber" class="form-label">Test result</label>
+                    <input readonly type="text" class="form-control" name="result" id="result"
+                      value="<%= user.testResult %>" />
+                  </div>
+                </section>
               </div>
-              <div class="mb-3">
-                <label for="lastName" class="form-label">Last Name</label>
-                <input
-                  readonly
-                  value="<%= user.lastName %>"
-                  type="text"
-                  class="form-control"
-                  name="lastName"
-                  id="lastName"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="licenseNumber" class="form-label"
-                  >License number</label
-                >
-                <input
-                  readonly
-                  value="<%= user.licenseNumber %>"
-                  type="text"
-                  class="form-control"
-                  name="licenseNumber"
-                  id="licenseNumber"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="age" class="form-label">Age</label>
-                <input
-                  readonly
-                  type="text"
-                  class="form-control"
-                  name="age"
-                  id="age"
-                  value="<%= user.age %>"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="dob" class="form-label">DOB</label>
-                <input
-                  readonly
-                  value=" <%= user.dob.toISOString().split('T')[0]; %>"
-                  type="text"
-                  class="form-control"
-                  name="dob"
-                  id="dob"
-                />
-              </div>
-            </section>
-            <section id="car-detail-container">
-              <h4 class="txt-color-theme">Your car details</h4>
-              <div class="mb-3">
-                <label for="make" class="form-label">Car Name</label>
-                <input
-                  readonly
-                  type="text"
-                  class="form-control"
-                  name="make"
-                  id="make"
-                  value="<%= user.carDetails.make %>"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="model" class="form-label">Model</label>
-                <input
-                  readonly
-                  type="text"
-                  class="form-control"
-                  name="model"
-                  id="model"
-                  value="<%= user.carDetails.model %>"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="year" class="form-label">Register Year</label>
-                <input
-                  readonly
-                  type="text"
-                  class="form-control"
-                  name="year"
-                  id="year"
-                  value="<%= user.carDetails.year %>"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="plateNumber" class="form-label">Plate Number</label>
-                <input
-                  readonly
-                  type="text"
-                  class="form-control"
-                  name="plateNumber"
-                  id="plateNumber"
-                  value="<%= user.carDetails.plateNumber %>"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="year" class="form-label"
-                  >Comment By examiner
-                </label>
-                <input
-                  readonly
-                  type="text"
-                  class="form-control"
-                  name="comment"
-                  id="comment"
-                  value="<%= user.comment %>"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="plateNumber" class="form-label">Test result</label>
-                <input
-                  readonly
-                  type="text"
-                  class="form-control"
-                  name="result"
-                  id="result"
-                  value="<%= user.testResult %>"
-                />
-              </div>
-            </section>
-          </div>
-        </form>
-        <% } %> <%- include('../views/partials/footer.ejs'); %> <%-
-        include('../views/partials/scripts.ejs'); %>
-      </div>
+            </form>
+            <% } %> <%- include('../views/partials/footer.ejs'); %> <%- include('../views/partials/scripts.ejs'); %>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>

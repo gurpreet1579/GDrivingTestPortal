@@ -8,7 +8,7 @@ module.exports = (req, res, next) => {
     if(error || !user )
         return res.redirect('/login');
     else if(req.session.userType !== 'Examiner' )
-        return res.redirect('/home');
+        return res.redirect('/');
     next();
 })
 }

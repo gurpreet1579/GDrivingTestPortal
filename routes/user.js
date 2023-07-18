@@ -7,7 +7,9 @@ router.get('/sign-up', userController.signUp);
 router.post('/create-user', userController.createUser);
 router.post('/create-session' , userController.createSession);
 router.get('/destroy-session' , userController.destroySession);
+router.get('/updateUserDetail',driverAuthMiddleware , userController.updateUserDetail );
 
+router.post("/updateGDriver/", driverAuthMiddleware, userController.updateGDriver);
 router.get('/get-slot' ,driverAuthMiddleware, userController.getSlot);
 router.post('/book-slot' ,driverAuthMiddleware, userController.addSlot);
 module.exports = router;
